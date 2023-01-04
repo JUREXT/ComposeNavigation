@@ -27,6 +27,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navDeepLink
 import com.example.compose.rally.ui.accounts.AccountsScreen
 import com.example.compose.rally.ui.accounts.SingleAccountScreen
 import com.example.compose.rally.ui.bills.BillsScreen
@@ -91,7 +92,8 @@ class RallyActivity : ComponentActivity() {
                         }
                         composable(
                             route = SingleAccount.routeWithArgs,
-                            arguments = SingleAccount.arguments
+                            arguments = SingleAccount.arguments,
+                            deepLinks = SingleAccount.deepLinks
                         ) {
                             val accountType = it.arguments?.getString(SingleAccount.accountTypeArg)
                             SingleAccountScreen(accountType)
