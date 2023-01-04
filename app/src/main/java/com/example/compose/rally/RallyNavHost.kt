@@ -1,5 +1,6 @@
 package com.example.compose.rally
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -30,14 +31,14 @@ fun RallyNavHost(
                     navController.navigateSingleTopTo(Bills.route)
                 },
                 onAccountClick = { accountType ->
-                    navController.navigateToSingleAccount(accountType)
+                    navController.navigateToSingleAccount(accountType, 1)
                 },
             )
         }
         composable(route = Accounts.route) {
             AccountsScreen(
                 onAccountClick = { accountType ->
-                    navController.navigateToSingleAccount(accountType)
+                    navController.navigateToSingleAccount(accountType, 2)
                 }
             )
         }
@@ -50,11 +51,12 @@ fun RallyNavHost(
             deepLinks = SingleAccount.deepLinks
         ) {
             val accountType = it.arguments?.getString(SingleAccount.accountTypeArg)
+            val accountId = it.arguments?.getInt(SingleAccount.accountIdArg)
+            Log.d("WHAT", "ID: $accountId")
             SingleAccountScreen(accountType)
         }
     }
 }
-
 
 fun NavHostController.navigateSingleTopTo(route: String) =
     this.navigate(route) {
@@ -65,6 +67,6 @@ fun NavHostController.navigateSingleTopTo(route: String) =
         restoreState = true
     }
 
-fun NavHostController.navigateToSingleAccount(accountType: String) {
-    this.navigateSingleTopTo("${SingleAccount.route}/$accountType")
+fun NavHostController.navigateToSingleAccount(accountType: String, id: Int) {
+    this.navigateSingleTopTo("${SingleAccount.route}/$accountType/$id")
 }

@@ -6,8 +6,6 @@ import androidx.compose.material.icons.filled.Money
 import androidx.compose.material.icons.filled.MoneyOff
 import androidx.compose.material.icons.filled.PieChart
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
@@ -44,13 +42,18 @@ object SingleAccount : RallyDestination {
     override val icon = Icons.Filled.Money
     override val route = "single_account"
     const val accountTypeArg = "account_type"
+    const val accountIdArg = "account_id"
 
-    val routeWithArgs = "$route/{$accountTypeArg}"
+    val routeWithArgs = "$route/{$accountTypeArg}/{$accountIdArg}"
 
     val arguments = listOf(
         navArgument(accountTypeArg) {
             type = NavType.StringType
             defaultValue = "0"
+        },
+        navArgument(accountIdArg) {
+            type = NavType.IntType
+            defaultValue = 0
         }
     )
 
