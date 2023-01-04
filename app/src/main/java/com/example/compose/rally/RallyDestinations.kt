@@ -61,16 +61,3 @@ object SingleAccount : RallyDestination {
 
 // Screens to be displayed in the top RallyTabRow
 val rallyTabRowScreens = listOf(Overview, Accounts, Bills)
-
-fun NavHostController.navigateSingleTopTo(route: String) =
-    this.navigate(route) {
-        popUpTo(this@navigateSingleTopTo.graph.findStartDestination().id) {
-            saveState = true
-        }
-        launchSingleTop = true
-        restoreState = true
-    }
-
-fun NavHostController.navigateToSingleAccount(accountType: String) {
-    this.navigateSingleTopTo("${SingleAccount.route}/$accountType")
-}
