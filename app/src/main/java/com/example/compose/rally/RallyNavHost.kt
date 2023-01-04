@@ -52,7 +52,8 @@ fun RallyNavHost(
         ) {
             val accountType = it.arguments?.getString(SingleAccount.accountTypeArg)
             val accountId = it.arguments?.getInt(SingleAccount.accountIdArg)
-            Log.d("WHAT", "ID: $accountId")
+            val name = it.arguments?.getString(SingleAccount.accountNameArg)
+            Log.d("WHAT", "ID: $accountId Name: $name")
             SingleAccountScreen(accountType)
         }
     }
@@ -67,6 +68,10 @@ fun NavHostController.navigateSingleTopTo(route: String) =
         restoreState = true
     }
 
-fun NavHostController.navigateToSingleAccount(accountType: String, id: Int) {
-    this.navigateSingleTopTo("${SingleAccount.route}/$accountType/$id")
+fun NavHostController.navigateToSingleAccount(accountType: String, id: Int, accName: String = "Test") {
+    this.navigateSingleTopTo("${SingleAccount.route}/$accountType/$id/$accName")
 }
+
+// One param: adb shell am start -d "app://single_account/Checking" -a android.intent.action.VIEW
+// Two param: adb shell am start -d "rally://single_account/Checking/500" -a android.intent.action.VIEW
+// More param: adb shell am start -d "rally://single_account/Checking/500/Lol" -a android.intent.action.VIEW

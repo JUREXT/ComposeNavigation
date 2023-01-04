@@ -43,8 +43,9 @@ object SingleAccount : RallyDestination {
     override val route = "single_account"
     const val accountTypeArg = "account_type"
     const val accountIdArg = "account_id"
+    const val accountNameArg = "account_name"
 
-    val routeWithArgs = "$route/{$accountTypeArg}/{$accountIdArg}"
+    val routeWithArgs = "$route/{$accountTypeArg}/{$accountIdArg}/{$accountNameArg}"
 
     val arguments = listOf(
         navArgument(accountTypeArg) {
@@ -62,5 +63,4 @@ object SingleAccount : RallyDestination {
     )
 }
 
-// Screens to be displayed in the top RallyTabRow
 val rallyTabRowScreens = listOf(Overview, Accounts, Bills)
