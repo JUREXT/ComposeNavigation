@@ -16,6 +16,10 @@ import com.example.compose.rally.ui.theme.RallyTheme
  * This Activity recreates part of the Rally Material Study from
  * https://material.io/design/material-studies/rally.html
  */
+
+// https://www.valueof.io/blog/compose-compositionlocal-compositionlocalprovider
+// https://stackoverflow.com/questions/72481883/jetpack-compose-deeplink-navigation-from-oauth
+
 class RallyActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
