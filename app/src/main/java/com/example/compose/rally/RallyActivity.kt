@@ -19,7 +19,14 @@ import com.example.compose.rally.ui.theme.RallyTheme
 
 // https://www.valueof.io/blog/compose-compositionlocal-compositionlocalprovider
 // https://stackoverflow.com/questions/72481883/jetpack-compose-deeplink-navigation-from-oauth
+// https://proandroiddev.com/best-practices-for-deeplinking-in-android-1dc1ea060c0c
+// https://blog.branch.io/universal-links-uri-schemes-app-links-and-deep-links-whats-the-difference/
+// https://stackoverflow.com/questions/72337085/jetpack-compose-navigations-deep-links-hit-customtabsintent-and-flash-to-deskto
+// https://help.adjust.com/en/article/test-adjust-deep-links
 
+// https://medium.com/@debduttapanda/jetpack-compose-power-navigation-ad5b0189af0d
+
+// https://stackoverflow.com/questions/72481883/jetpack-compose-deeplink-navigation-from-oauth
 class RallyActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
